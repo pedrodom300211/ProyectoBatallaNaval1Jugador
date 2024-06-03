@@ -1,0 +1,45 @@
+
+#TableroPrincipal, .boardinfo {
+    max-width: 500px;
+}
+
+#TableroPrincipal {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+.boardinfo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.startGame{
+     
+        min-width: 130px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        background: #3a86ff;
+        box-shadow: 0 5px #4433ff;
+      
+     
+    }
+    #gameOver {
+        display: none;
+    }
+    .emptySquare {
+        background-color: #79b5f5;
+    }
+    .square {
+        aspect-ratio: 1;
+    }
+    
+   
