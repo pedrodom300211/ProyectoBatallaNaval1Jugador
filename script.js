@@ -34,12 +34,16 @@ const drawSquare = (square, type) => {
     boardSquares[row][column] = squareTypes[type];
     const squareElement = document.getElementById(square);
     squareElement.setAttribute('class', `square ${type}`);
+    
+    
 
     if(type === 'emptySquare') {
         emptySquares.push(square);
+
     } else {
         if(emptySquares.indexOf(square) !== -1) {
             emptySquares.splice(emptySquares.indexOf(square), 1);
+            
         }
     }
 }
@@ -50,8 +54,12 @@ const drawSquare = (square, type) => {
 const createRandomSubmarinos=()=>{
     const randomEmptySquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
     submarino1=[randomEmptySquare];
-    
+   
     drawSquare(randomEmptySquare, 'shipSquare');
+    const botonbarco1 = document.getElementById(randomEmptySquare);
+    botonbarco1.setAttribute('class', 'BotonBarco'); 
+    
+    
 
     const randomEmptySquare2 = emptySquares[Math.floor(Math.random() * emptySquares.length)];
     submarino2=[randomEmptySquare2];
@@ -81,8 +89,16 @@ const createBoard = () => {
             const squareElement = document.createElement('div');
             squareElement.setAttribute('class', 'square emptySquare');
             squareElement.setAttribute('id', squareValue);
+            const botonAgua= document.createElement('button');
+            botonAgua.setAttribute('class','BotonAgua');
+            botonAgua.type= 'button';
+            botonAgua.setAttribute('id',squareValue);
             board.appendChild(squareElement);
+            squareElement.appendChild(botonAgua);
             emptySquares.push(squareValue);
+            
+           
+            
         })
     })
 }
