@@ -54,10 +54,15 @@ const drawSquare = (square, type) => {
 const createRandomSubmarinos=()=>{
     const randomEmptySquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
     submarino1=[randomEmptySquare];
+    
    
     drawSquare(randomEmptySquare, 'shipSquare');
-    const botonbarco1 = document.getElementById(randomEmptySquare);
-    botonbarco1.setAttribute('class', 'BotonBarco'); 
+    /* 
+    Como cambiar el boton a tocado EL ID ES b+NumeroArray1+NumeroArray2
+    const botonbarco1 = document.getElementById("b"+randomEmptySquare);
+    
+    botonbarco1.setAttribute('class', 'BotonBarco'); */
+    
     
     
 
@@ -92,7 +97,9 @@ const createBoard = () => {
             const botonAgua= document.createElement('button');
             botonAgua.setAttribute('class','BotonAgua');
             botonAgua.type= 'button';
-            botonAgua.setAttribute('id',squareValue);
+            let valorIdBoton="";
+            valorIdBoton="b"+squareValue;
+            botonAgua.setAttribute('id',valorIdBoton);
             board.appendChild(squareElement);
             squareElement.appendChild(botonAgua);
             emptySquares.push(squareValue);
@@ -111,13 +118,47 @@ const setGame = () => {
     createBoard();
     setBarcos();
 }
+const validarSiEsBarco=(PosicionBoton)=>{
+    /*NO SE PQ ACA NO NECESITA LA B ANTES Q LA POSICION PERO FUNCIONA :D */
+    let Posicion = PosicionBoton.substring(1)
+    if(Posicion==submarino1[0]||Posicion==submarino2[0]||Posicion==submarino3[0]||Posicion==submarino4[0]){
+        return true;
+    }else{return false;}
+
+
+}
+const getBotones=()=>{
+   
+    console.log(submarino1);
+   
+    const botonesAgua = document.querySelectorAll('.BotonAgua');
+
+
+    botonesAgua.forEach(boton => {
+    if(validarSiEsBarco(boton.id)){ boton.addEventListener('click',() => CambiarATocado(boton))}else{
+    boton.addEventListener('click', () => { boton.setAttribute('class', 'BotonAguaTocado');});}
+    
+    
+});
+}
 const startGame = ()=>{
     
     setGame();
     gameOverSign.style.display = 'none';
     //startButton.disabled = true;
     drawBoat();
+    getBotones();
    
+}
+const CambiarATocado=(boton)=>
+{
+    console.log("Entro a tocado");
+    
+    boton.setAttribute('class', 'BotonBarco');
+
 }
 
 startButton.addEventListener('click', startGame);
+
+
+

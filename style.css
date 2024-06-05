@@ -74,10 +74,10 @@
     width: 50px;
     
     height: 50px;
-    color: #fff;
+  
 
     font-weight: bold;
-    cursor: pointer;
+    
     transition: all 0.3s ease;
     position: relative;
   
@@ -85,15 +85,27 @@
     border-radius: 5px;
     border: none;
     background: #f72c47;
-    box-shadow: 0 5px #af020b;
+    box-shadow: 0 5px #f72c47;
 
    }
    
-  .BotonBarco:hover{
-    box-shadow: 0 3px #af020b;
-    top: 1px;
-  }
-  .BotonBarco:active {
-    box-shadow: 0 0 #af020b;
-    top: 5px;
-  }
+ 
+
+  .BotonAguaTocado{
+    width: 50px;
+    
+    height: 50px;
+    color: #fff;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+    position: relative;
+  
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #4433ff;
+    box-shadow: 0 5px #4433ff;
+
+   }
